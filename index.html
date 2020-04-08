@@ -14,65 +14,69 @@
         var r;
         var H;
 
-        let i = 0;
-        do
-        {
-            if (i > 0)
+        function volume() {
+            let i = 0;
+            do
             {
-                if (isEmpty(r)){
-                    alert("Cylinder base radius must have value!");
-                    r = prompt("Please enter cylinder base radius:")
+                if (i > 0)
+                {
+                    if (isEmpty(r)){
+                        alert("Cylinder base radius must have value!");
+                        r = prompt("Please enter cylinder base radius:")
+                    }
+                    else
+                    {
+                        alert("Cylinder base radius not valid! Cylinder base radius must be a number greater than zero!");
+                        r = prompt(" Please enter a valid cylinder base radius:");
+                    }
                 }
                 else
                 {
-                    alert("Cylinder base radius not valid! Cylinder base radius must be a number greater than zero!");
-                    r = prompt(" Please enter a valid cylinder base radius:");
+                    var r = prompt("Please enter cylinder base radius:");
                 }
-            }
-            else
-            {
-                var r = prompt("Please enter cylinder base radius:");
-            }
-            i++;
-            if (r === null) {
-                break; //break out of the loop if promt cancelled
-            }
-        } while(isEmpty(r) || isNaN(Number(r)) || Number(r) <= 0);
+                i++;
+                if (r === null) {
+                    return; //break out of the program if promt cancelled
+                }
+            } while(isEmpty(r) || isNaN(Number(r)) || Number(r) <= 0);
+            
+            
         
-        
-       
-        let j = 0;
-        do
-        {
-            if (j > 0)
+            let j = 0;
+            do
             {
-                if (isEmpty(H)){
-                    alert("Cylinder height must have value!");
+                if (j > 0)
+                {
+                    if (isEmpty(H)){
+                        alert("Cylinder height must have value!");
+                        H = prompt("Please enter cylinder height:");
+                    }
+                    else
+                    {
+                        alert("Cylinder height not valid! Cylinder height must be a number greater than zero!");
+                        H = prompt("Please enter a valid cylinder height:");
+                    }
+                }
+                else
+                {
                     H = prompt("Please enter cylinder height:");
                 }
-                else
-                {
-                    alert("Cylinder height not valid! Cylinder height must be a number greater than zero!");
-                    H = prompt("Please enter a valid cylinder height:");
+                j++;
+                if (H === null) {
+                    return; //break out of the program if promt cancelled
                 }
-            }
-            else
-            {
-                H = prompt("Please enter cylinder height:");
-            }
-            j++;
-            if (H === null) {
-                break; //break out of the loop if promt cancelled
-            }
-        } while(isEmpty(H) || isNaN(Number(H)) || Number(H) <= 0);
+            } while(isEmpty(H) || isNaN(Number(H)) || Number(H) <= 0);
 
-        var volume = Math.pow(Number(r),2) * pi * Number(H);
-        
-        alert("Cylinder volume is: " + volume.toFixed(2));
+            var volume = Math.pow(Number(r),2) * pi * Number(H);
+            
+            alert("Cylinder volume is: " + volume.toFixed(2));
+        }
 
         function isEmpty(value) {
             return value === '';
         }
+
+        volume();
     </script>
 </body> 
 
